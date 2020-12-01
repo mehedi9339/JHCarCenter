@@ -1,0 +1,253 @@
+﻿@model CarPro.ViewModels.ReceiptVm
+
+@{
+    ViewData["Title"] = "GetReceipt";
+}
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+
+<style>
+    #challan {
+        font-size: 25px;
+        font-family: Calibri;
+    }
+
+    tr:not(.tblInn), td:not(.tblInn), th:not(.tblInn) {
+        border: 1px solid black !important;
+        text-align: center !important;
+    }
+
+    .tblInn tr, .tblInn td, .tblInn th {
+        border: none !important;
+        text-align: left !important;
+    }
+
+    .ChallanHeading {
+        font-size: 55px;
+        letter-spacing: 15px;
+        font-family: 'Paytone One', sans-serif;
+        width: 100%;
+        font-weight: bold;
+        font-style: italic;
+        text-shadow: 4px 4px 0px rgba(32,32,32,0.3) !important;
+    }
+
+    .challanHead {
+        letter-spacing: 5px !important;
+        text-align: center !important;
+        font-weight: bolder !important;
+        font-family: 'Paytone One' !important;
+    }
+
+    .tblInn tr td:first-child {
+        width: 200px !important;
+    }
+
+    #receipt {
+        font-size: 20px;
+        color: black;
+        position: relative;
+    }
+
+        #receipt:before {
+            content: "";
+            background-image: url('https://cdn5.vectorstock.com/i/thumb-large/50/09/seamless-guilloche-background-pattern-green-vector-23785009.jpg');
+            background-size: cover;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            opacity: 0.50;
+        }
+</style>
+<div id="challan">
+    <div class="row" style="border-bottom: 2px solid black;">
+        <div class="col-md-2">
+            <img style="width: 170px; height: 156px;" src="~/img/logo.png" />
+        </div>
+        <div class="col-md-10" style="padding-left: 50px;">
+            <h1 class="ChallanHeading">J H Car Center</h1>
+            <h2 style="letter-spacing: 5px;">All kinds of Motor Car Purchaser & Seller</h2>
+            <h3>80/5, Kakrail (Ground Fl.) Dhaka-1000, Phone: 9335471</h3>
+        </div>
+    </div>
+
+    <div class="row pt-2">
+        <div class="col-md-4">
+            Challan No: @Html.DisplayFor(model => model.ChallanNo)
+        </div>
+        <div class="col-md-4">
+            <h2 class="challanHead">Challan</h2>
+            <hr style="background: black; width: 170px; height: 3px; margin-top: -9px" />
+        </div>
+        <div class="col-md-4">
+            Date: @Html.DisplayFor(model => model.OrderDate)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                <span>Name:</span> <span style="border-bottom: 3px dotted black; min-width: 90%; display: inline-block;">@Html.DisplayFor(model => model.CustomerName)</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                <span>Address:</span> <span style="border-bottom: 3px dotted black; min-width: 87%; margin-bottom: 25px; display: inline-block;">@Html.DisplayFor(model => model.Address)</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered" style="min-height: 820px;">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td>
+                            <table class="table table-borderless tblInn" style="border: none">
+                                <tr>
+                                    <td>Type of Vehicle</td>
+                                    <td>: @Html.DisplayFor(model => model.TypeOfVehicle)</td>
+                                </tr>
+                                <tr>
+                                    <td>Chassis No.</td>
+                                    <td>: @Html.DisplayFor(model => model.ChassisNo)</td>
+                                </tr>
+                                <tr>
+                                    <td>Engine No.</td>
+                                    <td>: @Html.DisplayFor(model => model.EngineNo)</td>
+                                </tr>
+                                <tr>
+                                    <td>Manf. Year</td>
+                                    <td>: @Html.DisplayFor(model => model.ManfYear)</td>
+                                </tr>
+                                <tr>
+                                    <td>C.C</td>
+                                    <td>: @Html.DisplayFor(model => model.Cc)</td>
+                                </tr>
+                                <tr>
+                                    <td>Colour</td>
+                                    <td>: @Html.DisplayFor(model => model.Colour)</td>
+                                </tr>
+                                <tr>
+                                    <td>Load Capacity</td>
+                                    <td>: @Html.DisplayFor(model => model.LoadCapacity)</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>@Html.DisplayFor(model => model.Quantity)</td>
+                        <td>@Html.DisplayFor(model => model.Remarks)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            Any Claim against shortage or damage must be notified in written withing 3 (Three) days of receipt of goods, otherwise It will be assured that goods have been received in order and actual / anterily as per this chalian.
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 mt-4">
+            <div style="text-align: right;">
+                For: <span style="font-size: 30px; font-family: 'Paytone One', sans-serif; font-style: italic; font-weight: bold;"> J H Car Center</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 35px;">
+        <div class="col-md-6">
+            Receiver Signature
+        </div>
+        <div class="col-md-6 text-right">
+            Authorized Signature
+        </div>
+    </div>
+</div>
+
+<div id="receipt" style="background-color: lightblue; margin-top: 50px; padding: 10px;">
+    <div class="row">
+        <div class="col-md-5" style="border-right: 2px dotted black;">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>J H Car Center</h2>
+                    <h4 style="font-size: 20px;">80/5, Kakrail (Ground Fl.) Dhaka-1000</h4>
+                    <h4 style="font-size: 20px;">Sl No. @Html.DisplayFor(model => model.ReceiptlNo) Date: @Html.DisplayFor(model => model.OrderDate)</h4>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <p>Received from: J R Car Center</p>
+                    <p>as adv./parl/fut! payment against: J R Car</p>
+                    <p><span>Bill No. @Html.DisplayFor(model => model.BillNo)</span> <span>Date: @Html.DisplayFor(model => model.OrderDate)</span></p>
+                    <p>cash / cheque No. & Bank: @Html.DisplayFor(model => model.PaymentType)</p>
+                    <p>Tk. <span style="background-color: white; padding: 5px;">@Html.DisplayFor(model => model.TotalAmount)</span></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    For <span>J H Car Center</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="~/img/logo1.png" />
+                </div>
+                <div class="col-md-10 pl-4">
+                    <h1>J H Car Center</h1>
+                    <h2 style="font-size: 20px; color: #D83687">All kinds of Motor Car Purchaser & Seller</h2>
+                    <h3 style="font-size: 17px;">80/5, Kakrail (Ground Fl.) Dhaka-1000, Phone: 9335471</h3>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <span style="text-align: left;">Sl. No. @Html.DisplayFor(model => model.ReceiptlNo)</span>
+                    <span style="text-align: right !important; float: right;">Date: @Html.DisplayFor(model => model.OrderDate)</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Received with thanks from: J R Car Center</p>
+                    <p>The Sum of Taka: @Html.DisplayFor(model => model.TotalAmount)</p>
+
+                    <table style="border: none !important">
+                        <tr style="border: none !important">
+                            <td style="border: none !important; font-size: 17px">as adv./part/full payment against Bill No. @Html.DisplayFor(model => model.BillNo)</td>
+                            <td style="border: none !important; font-size: 17px">Date: @Html.DisplayFor(model => model.OrderDate)</td>
+                        </tr>
+                    </table>
+
+                    <p style="text-align: left; float: left;">cash / cheque No. & Bank: @Html.DisplayFor(model => model.PaymentType)</p>
+                    <p style="float: right;">Date: @Html.DisplayFor(model => model.OrderDate)</p>
+                    <p>Tk. <span style="background-color: white; padding: 5px;">@Html.DisplayFor(model => model.TotalAmount)</span></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    For <span>J H Car Center</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

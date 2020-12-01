@@ -1,0 +1,122 @@
+﻿@model IEnumerable<CarPro.Models.Offer>
+
+@{
+    ViewData["Title"] = "GetOffer";
+}
+
+<h1>All Offers</h1>
+
+
+<table class="table table-bordered table-warning table-condenced table-responsive">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chassis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Engine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManfYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoadCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accessories)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfferDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Delivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Validity)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>*@
+            <th>
+                <a asp-action="CreateOffer" class="btn btn-outline-info btn-block">New Offer</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chassis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Engine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManfYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Colour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoadCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accessories)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfferDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Delivery) days
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Validity) days
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.CustomerId)
+            </td>*@
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="PrintOffer" target="_blank" asp-route-id="@item.Id">PrintOffer</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+
+                <div class="dropdown">
+                    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
+                        Actions
+                    </button>
+                    <div class="dropdown-menu">
+                        <h5 class="dropdown-header">Reporting</h5>
+                        <a class="dropdown-item" asp-action="PrintOffer" target="_blank" asp-route-id="@item.Id">Print Offer</a>
+                        <a class="dropdown-item" asp-action="PrintReceipt" target="_blank" asp-route-id="@item.Id">Print Receipt</a>
+                        <h5 class="dropdown-header">Action</h5>
+                        <a class="dropdown-item" asp-action="PlaceOrder" asp-route-id="@item.Id">Place Order</a>
+                        <a class="dropdown-item" asp-action="EditOffer" asp-route-id="@item.Id">Edit Offer</a>
+                        <a class="dropdown-item" asp-action="DeleteOffer" asp-route-id="@item.Id">Delete Offer</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

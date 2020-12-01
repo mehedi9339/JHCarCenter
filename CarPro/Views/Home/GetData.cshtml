@@ -1,0 +1,180 @@
+﻿@model CarPro.ViewModels.QuatationVm
+
+@{
+    ViewData["Title"] = "GetData";
+}
+<style>
+    td, th{
+        border: 1px solid black;
+    }
+    tr th{
+        text-align: center !important;
+    }
+    tr th:first-child, tr td:first-child {
+        width: 80px !important;
+        text-align: center !important;
+    }
+    tr th:nth-child(2), tr td:nth-child(2) {
+        width: 200px !important;
+        text-align: left !important;
+    }
+    tr td:first-child{
+        border-top: none !important;
+        border-bottom: none !important;
+    }
+</style>
+<div id="quot" style="font-size: 20px; font-family: Calibri;">
+    <div class="row">
+        <div class="col-md-2">
+            <img style="width: 170px; height: 156px;" src="~/img/logo1.png" />
+        </div>
+        <div class="col-md-6" style="padding-left: 50px;">
+            <h1 class="ChallanHeading">J H Car Center</h1>
+            <h5>All kinds of Motor Car Purchaser & Seller</h5>
+            <hr />
+            <h4>80/5, Kakrail (Ground Floor.)</h4>
+            <h4>Dhaka-1000, Phone: 9335471</h4>
+            <h4>Mobile: 01711-351129, 01711-638301</h4>
+        </div>
+        <div class="col-md-4" style="color: #28A2E0;">
+            <img src="~/img/quot.png" width="286" height="79" />
+            <p>DATE: @Html.DisplayFor(model => model.OfferDate)</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12" style="color: black;">
+            <span style="color: #28A2E0;">To:</span> @Html.DisplayFor(model => model.CustomerName), @Html.DisplayFor(model => model.Address)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12" style="color: #28A2E0;">
+            <p style="color: black;">A/C: @Html.DisplayFor(model => model.Ac)</p>
+            Dear Sir, <br />
+            We have great pleasure to offer our best price as follow in response to your valued query-
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th>Sl. No.</th>
+                        <th colspan="2">Description of Vehicle</th>
+                        <th>Price Per Unit</th>
+                    </tr>
+                </thead>
+                <tbody style="color: #28A2E0;">
+                    <tr>
+                        <td>1.</td>
+                        <td>Type of Vehicle</td>
+                        <td>: @Html.DisplayFor(model => model.Type)</td>
+                        <td rowspan="8" width="200px" style="text-align: center;">@Html.DisplayFor(model => model.Price)</td>
+                    </tr>
+
+                    <tr>
+                        <td>2.</td>
+                        <td>Chassis No.</td>
+                        <td>: @Html.DisplayFor(model => model.Chassis)</td>
+                    </tr>
+
+                    <tr>
+                        <td>3.</td>
+                        <td>Engine No.</td>
+                        <td>: @Html.DisplayFor(model => model.Engine)</td>
+                    </tr>
+
+                    <tr>
+                        <td>4.</td>
+                        <td>Manf. Year</td>
+                        <td>: @Html.DisplayFor(model => model.ManfYear)</td>
+                    </tr>
+
+                    <tr>
+                        <td>5.</td>
+                        <td>C.C</td>
+                        <td>: @Html.DisplayFor(model => model.Cc)</td>
+                    </tr>
+
+                    <tr>
+                        <td>6.</td>
+                        <td>Colour</td>
+                        <td>: @Html.DisplayFor(model => model.Colour)</td>
+                    </tr>
+
+                    <tr>
+                        <td>7.</td>
+                        <td>Load Capacity</td>
+                        <td>: @Html.DisplayFor(model => model.LoadCapacity)</td>
+                    </tr>
+
+                    <tr>
+                        <td>8.</td>
+                        <td>Assessories</td>
+                        <td>: @Html.DisplayFor(model => model.Accessories)</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td colspan="3" style="color: black;">Taka In Words: @ViewBag.word Tk Only</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td colspan="3" class="text-center" style="color: black; text-align: center;">Terms and Conditions</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="border-right: none !important; border-bottom: none !important; color: black;">Payment</td>
+                        <td colspan="2" style="border-left: none !important; border-bottom: none !important;">
+                            100% Payment to be made in cash/Check/Pay Order/D.D. in favour of our account at'the time of delivery
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="border-right: none !important; border-bottom: none !important; border-top: none !important; color: black;">Warranty</td>
+                        <td colspan="2" style="border-top: none !important; border-left: none !important; border-bottom: none !important;">We.shall provide one year after sales service without apare parts.</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="border-right: none !important; border-bottom: none !important; border-top: none !important; color: black;">Delivery</td>
+                        <td colspan="2" style="border-top: none !important; border-left: none !important; border-bottom: none !important;">Within @Html.DisplayFor(model => model.Delivery) days from the date of your final confirmation.</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="border-top: none !important; border-right: none !important; color: black;">Validity</td>
+                        <td colspan="2" style="border-top: none !important; border-left: none !important;">
+                            our offer shall remain valid upto @Html.DisplayFor(model => model.Validity) days fro your acceptance from the date of this offer
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12" style="color: #28A2E0;">
+            We hope you will find our offer very competitive and we look froward to receiving your valued order soon.
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12" style="color: #28A2E0;">
+            Thanking You
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12" style="color: #28A2E0;">
+            Your Faithfully
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12" style="color: #28A2E0;">
+            For: <span style="color: black;">fHCarCenter</span>
+        </div>
+    </div>
+</div>

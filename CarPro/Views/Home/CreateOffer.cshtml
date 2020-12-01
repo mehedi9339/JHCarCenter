@@ -1,0 +1,131 @@
+﻿@model CarPro.ViewModels.OfferVm
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Offer</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateOffer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label">Car Type</label>
+                @*<input asp-for="Type" class="form-control" />*@
+                <select asp-for="Type" class="form-control">
+                    <option value="Hatchback">Hatchback</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="MPV">MPV</option>
+                    <option value="MPV">MPV</option>
+                    <option value="Crossover">Crossover</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Convertible">Convertible</option>
+                </select>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Chassis" class="control-label">Chassis No.</label>
+                <input asp-for="Chassis" class="form-control" />
+                <span asp-validation-for="Chassis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Engine" class="control-label">Engine No.</label>
+                <input asp-for="Engine" class="form-control" />
+                <span asp-validation-for="Engine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManfYear" class="control-label">Manf. Year</label>
+                @*<input asp-for="ManfYear" class="form-control" />*@
+                <select asp-for="ManfYear" class="form-control">
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                </select>
+                <span asp-validation-for="ManfYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cc" class="control-label"></label>
+                <input asp-for="Cc" class="form-control" />
+                <span asp-validation-for="Cc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Colour" class="control-label"></label>
+                @*<input asp-for="Colour" class="form-control" />*@
+                <select asp-for="Colour" class="form-control">
+                    <option value="Guards Red">Guards Red</option>
+                    <option value="Mica Blue">Mica Blue</option>
+                    <option value="Liquid Yellow">Liquid Yellow</option>
+                    <option value="Estoril Blue">Estoril Blue</option>
+                    <option value="Championship White">Championship White</option>
+                    <option value="Nardo Grey">Nardo Grey</option>
+                    <option value="Ultimate Green">Ultimate Green</option>
+                    <option value="Norfolk Mustard">Norfolk Mustard</option>
+                    <option value="Ermine White">Ermine White</option>
+                    <option value="Hugger Orange">Hugger Orange</option>
+                    <option value="Sub-lime">Sub-lime</option>
+                    <option value="Silver Birch">Silver Birch</option>
+                </select>
+                <span asp-validation-for="Colour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LoadCapacity" class="control-label">Load Capacity</label>
+                <input asp-for="LoadCapacity" class="form-control" />
+                <span asp-validation-for="LoadCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Accessories" class="control-label"></label>
+                <input asp-for="Accessories" class="form-control" />
+                <span asp-validation-for="Accessories" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="OfferDate" class="control-label"></label>
+                <input asp-for="OfferDate" class="form-control" />
+                <span asp-validation-for="OfferDate" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Delivery" class="control-label"></label>
+                <input asp-for="Delivery" class="form-control" />
+                <span asp-validation-for="Delivery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Validity" class="control-label"></label>
+                <input asp-for="Validity" class="form-control" />
+                <span asp-validation-for="Validity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Customer Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ac" class="control-label">Account</label>
+                <input asp-for="Ac" class="form-control" />
+                <span asp-validation-for="Ac" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="GetOffer" class="btn btn-outline-primary">Back to Offer</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
