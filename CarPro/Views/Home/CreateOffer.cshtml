@@ -13,7 +13,6 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Type" class="control-label">Car Type</label>
-                @*<input asp-for="Type" class="form-control" />*@
                 <select asp-for="Type" class="form-control">
                     <option value="Hatchback">Hatchback</option>
                     <option value="Sedan">Sedan</option>
@@ -37,7 +36,6 @@
             </div>
             <div class="form-group">
                 <label asp-for="ManfYear" class="control-label">Manf. Year</label>
-                @*<input asp-for="ManfYear" class="form-control" />*@
                 <select asp-for="ManfYear" class="form-control">
                     <option value="2015">2015</option>
                     <option value="2016">2016</option>
@@ -55,7 +53,6 @@
             </div>
             <div class="form-group">
                 <label asp-for="Colour" class="control-label"></label>
-                @*<input asp-for="Colour" class="form-control" />*@
                 <select asp-for="Colour" class="form-control">
                     <option value="Guards Red">Guards Red</option>
                     <option value="Mica Blue">Mica Blue</option>
@@ -79,7 +76,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Accessories" class="control-label"></label>
-                <input asp-for="Accessories" class="form-control" />
+                <input type="checkbox" name="Accessories" id="categorieOne" value="Built-in A/C" />
+                <label>Built-in A/C</label>
+                <input type="checkbox" name="Accessories" id="categorieTwo" value="Power Steering" />
+                <label>Power Steering</label>
+                <input type="checkbox" name="Accessories" id="categorieTwo" value="Auto/Manual Gear" />
+                <label>Auto/Manual Gear</label>
+                <input type="checkbox" name="Accessories" id="categorieTwo" value="Power Window" />
+                <label>Power Window</label>
+                <input type="checkbox" name="Accessories" id="categorieTwo" value="Power Mirror (Retractable)" />
+                <label>Power Mirror (Retractable)</label>
+                @*<input asp-for="Accessories" class="form-control" />*@
                 <span asp-validation-for="Accessories" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -87,11 +94,6 @@
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
-                <label asp-for="OfferDate" class="control-label"></label>
-                <input asp-for="OfferDate" class="form-control" />
-                <span asp-validation-for="OfferDate" class="text-danger"></span>
-            </div>*@
             <div class="form-group">
                 <label asp-for="Delivery" class="control-label"></label>
                 <input asp-for="Delivery" class="form-control" />

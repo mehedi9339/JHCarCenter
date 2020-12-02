@@ -77,12 +77,19 @@ namespace CarPro.Controllers
         // POST: Create Offer
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateOffer(IFormCollection collection, OfferVm offerVm)
+        public ActionResult CreateOffer(IFormCollection collection, OfferVm offerVm, string[] Accessories)
         {
             using (var transaction = _context.Database.BeginTransaction())
             {
                 try
                 {
+                    var assec = "";
+                    for (int i = 0; i < Accessories.Length; i++)
+                    {
+                        assec += Accessories[i] + ", ";
+                    }
+                    assec = assec.Substring(0, assec.Length - 2);
+
                     var customer = new Customer
                     {
                         Id = 0,
@@ -103,7 +110,7 @@ namespace CarPro.Controllers
                         Cc = offerVm.Cc,
                         Colour = offerVm.Colour,
                         LoadCapacity = offerVm.LoadCapacity,
-                        Accessories = offerVm.Accessories,
+                        Accessories = assec,
                         Price = offerVm.Price,
                         OfferDate = DateTime.Now,
                         Delivery = offerVm.Delivery,
